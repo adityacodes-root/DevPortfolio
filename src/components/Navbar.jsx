@@ -60,11 +60,6 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img
-            src={"src/assets/logo.png"}
-            alt="logo"
-            className="w-14 h-14 object-contain transition-transform duration-300 hover:scale-105"
-          />
         </Link>
 
         {/* Desktop Navigation */}
