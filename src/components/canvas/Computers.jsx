@@ -1,33 +1,15 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-import * as THREE from "three";
+
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const [computer, setComputer] = useState(null);
-
-  useEffect(() => {
-    async function loadModel() {
-      try {
-        const gltf = await useGLTF("/desktop_pc/scene.gltf"); // Using absolute path
-        setComputer(gltf);
-        console.log("Model Loaded:", gltf);
-      } catch (error) {
-        console.error("Error loading model:", error);
-      }
-    }
-
-    loadModel();
-  }, []);
-
-  if (!computer) return null; // Avoid rendering before the model loads
-
-  console.log("Position Attribute:", computer.scene?.geometry?.attributes?.position);
+  const computer = useGLTF("./desktop_pc/scene.gltf");
 
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor="black" />
+      <hemisphereLight intensity={0.15} groundColor='black' />
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
@@ -51,21 +33,21 @@ const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check if WebGL is supported
-    if (!THREE.WebGLRenderer) {
-      alert("Your device does not support WebGL.");
-      return;
-    }
-
-    // Screen size listener
+    // Add a listener for changes to the screen size
     const mediaQuery = window.matchMedia("(max-width: 500px)");
+
+    // Set the initial value of the `isMobile` state variable
     setIsMobile(mediaQuery.matches);
 
+    // Define a callback function to handle changes to the media query
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
 
+    // Add the callback function as a listener for changes to the media query
     mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    // Remove the listener when the component is unmounted
     return () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
@@ -73,7 +55,7 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      frameloop="demand"
+      frameloop='demand'
       shadows
       dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }}
