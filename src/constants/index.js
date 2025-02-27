@@ -63,10 +63,7 @@ const services = [
 ];
 
 const technologies = [
-  {
-    name: "python",
-    icon: python,
-  },
+  
   {
     name: "HTML 5",
     icon: html,
@@ -76,20 +73,18 @@ const technologies = [
     icon: tailwind,
   },
   {
-    name: "JavaScript",
+    name: "javascript",
     icon: javascript,
-  },{
-    name: "ReactJS",
+  },
+  {
+    name: "reactjs",
     icon: reactjs,
   },
   {
-    name: "NodeJS",
-    icon: nodejs,
-  },
-  {
-    name: "mySQL",
+    name: "mysql",
     icon: mysql,
   },
+  
 
  
 ];
