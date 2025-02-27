@@ -72,18 +72,13 @@ const technologies = [
     icon: html,
   },
   {
-    name: "CSS",
-    icon: css,
-  },
-  {
     name: "tailwind",
     icon: tailwind,
   },
   {
     name: "JavaScript",
     icon: javascript,
-  },
-  {
+  },{
     name: "ReactJS",
     icon: reactjs,
   },
@@ -94,10 +89,6 @@ const technologies = [
   {
     name: "mySQL",
     icon: mysql,
-  },
-  {
-    name: "git",
-    icon: git,
   },
 
  
